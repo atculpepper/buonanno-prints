@@ -1,7 +1,16 @@
-# Movie Sagas
+# Buonanno Prints
 
 ## Description
 
-This project is a work in progress! I am working on creating a movie database that shows movie data on the DOM. When an individual listing is clicked, the user should be taken to a "/details" view, where more information about the selected movie is displayed. From "/details," the user will have access to an "edit" button where the user can update the Title and Description of the selected movie. Using redux sagas, this information will be communicated to the server and the server will respond with updated database information, which will be rendered to the DOM.
+This project is in development. I am working on creating a print gallery for a private collector of Italian Renaissance architectural prints. When an individual print listing is clicked, the user is taken taken to a "/details" view, where more information about the selected print is displayed. From "/details," the user has the ability to edit the listing and update the Title and Description of the selected print. 
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+## Technologies
+
+- PERN stack (Postgres, Express, React, Node.js)
+- Redux
+- Redux-saga
+- React-router-dom
+- pg
+- Axios
+- Styled with Material UI
+
