@@ -8,9 +8,12 @@ class PrintGenreItem extends Component {
       type: 'DELETE_PRINT_GENRE',
       payload: {
         printGenreId: this.props.item.id,
-        printID: this.props.item.prints_id,
+        printId: this.props.item.print_id,
       },
     });
+    console.log(this.props.item.print_id);
+    console.log(this.props.item.id);
+    console.log(this.props.item);
   };
 
   render() {

@@ -61,7 +61,7 @@ class DetailsPage extends Component {
               <img
                 className={classes.poster}
                 src={this.props.store.details.image}
-                alt={`${this.props.store.details.title}, movie poster`}
+                alt={`${this.props.store.details.title}, print`}
               />
             </Grid>
             <Grid item xs={12} sm={8} md={9}>

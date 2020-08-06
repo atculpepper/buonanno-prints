@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 //custom styling imports
 import { withStyles, createStyles } from '@material-ui/core';
-import { logo } from './alice.jpg';
 
 //material-ui components
 import AppBar from '@material-ui/core/AppBar';
