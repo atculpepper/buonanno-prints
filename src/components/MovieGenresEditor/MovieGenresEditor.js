@@ -13,6 +13,7 @@ class MovieGenresEditor extends Component {
     this.props.dispatch({
       type: 'GET_GENRES',
     });
+    console.log(this.props.movieId);
   }
 
   changeSelectedGenre = (event) => {

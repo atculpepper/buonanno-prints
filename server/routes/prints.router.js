@@ -67,8 +67,8 @@ router.put('/edit/:id', (req, res) => {
 
 router.get('/genres/:id', (req, res) => {
   // get a single movies' data
-  const queryString = `SELECT "print_genres".id, "print_genres".prints_id, "print_genres".genres_id, "prints".title, "genres".name FROM "prints"
-    JOIN "print_genres" ON "prints".id = "print_genres".prints_id
+  const queryString = `SELECT "print_genres".id, "print_genres".print_id, "print_genres".genres_id, "prints".title, "genres".name FROM "prints"
+    JOIN "print_genres" ON "prints".id = "print_genres".print_id
     JOIN "genres" ON "print_genres".genres_id = "genres".id
     WHERE "prints".id = $1;`;
   const movieId = req.params.id;
@@ -101,7 +101,7 @@ router.delete('/genres/:junctionId', (req, res) => {
 
 router.post('/genres', (req, res) => {
   const moviesGenresData = req.body;
-  const queryString = `INSERT INTO "print_genres" ("prints_id", "genres_id")
+  const queryString = `INSERT INTO "print_genres" ("print_id", "genres_id")
     VALUES ($1, $2);`;
 
   pool
