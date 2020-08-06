@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { put } from 'redux-saga/effects';
 
-function* postMovieGenre(action) {
+function* postPrintGenre(action) {
   try {
     yield axios.post(`/api/prints/genres/`, action.payload);
     yield put({
-      type: 'GET_MOVIE_GENRES',
+      type: 'GET_PRINT_GENRES',
       payload: action.payload.prints_id,
     });
   } catch (err) {
@@ -13,4 +13,4 @@ function* postMovieGenre(action) {
   }
 }
 
-export default postMovieGenre;
+export default postPrintGenre;

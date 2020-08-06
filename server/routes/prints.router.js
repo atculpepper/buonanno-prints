@@ -27,10 +27,10 @@ router.get('/', (req, res) => {
 router.get('/details/:id', (req, res) => {
   // get a single movies' data
   const queryString = `SELECT * FROM "prints" WHERE "id" = $1;`;
-  const movieId = req.params.id;
+  const printId = req.params.id;
 
   pool
-    .query(queryString, [movieId])
+    .query(queryString, [printId])
     .then((responseDb) => {
       res.send(responseDb.rows);
     })
@@ -45,7 +45,7 @@ router.put('/edit/:id', (req, res) => {
   const queryText = `UPDATE "prints"
     SET "title" = $1, "description" = $2
     WHERE "id" = $3;`;
-  const movieId = req.params.id;
+  const printId = req.params.id;
   const newMovieData = req.body;
 
   pool
@@ -54,7 +54,7 @@ router.put('/edit/:id', (req, res) => {
       newMovieData.title,
       // how to get the description
       newMovieData.description,
-      movieId,
+      printId,
     ])
     .then((responseDb) => {
       res.sendStatus(200);
@@ -71,10 +71,10 @@ router.get('/genres/:id', (req, res) => {
     JOIN "print_genres" ON "prints".id = "print_genres".print_id
     JOIN "genres" ON "print_genres".genres_id = "genres".id
     WHERE "prints".id = $1;`;
-  const movieId = req.params.id;
+  const printId = req.params.id;
 
   pool
-    .query(queryString, [movieId])
+    .query(queryString, [printId])
     .then((responseDb) => {
       res.send(responseDb.rows);
     })
@@ -171,11 +171,11 @@ module.exports = router;
 // router.get("/details/:id", (req, res) => {
 //   // get a single movies' data
 //   const queryString = `SELECT * FROM "movies" WHERE "id" = $1;`;
-//   const movieId = req.params.id;
+//   const printId = req.params.id;
 
 //   pool
-//     //what is happening here with [movieId] as a second argument to .query method ?
-//     .query(queryString, [movieId])
+//     //what is happening here with [printId] as a second argument to .query method ?
+//     .query(queryString, [printId])
 //     .then((responseDb) => {
 //       res.send(responseDb.rows);
 //     })
@@ -192,10 +192,10 @@ module.exports = router;
 //     JOIN "movies_genres" ON "movies".id = "movies_genres".movies_id
 //     JOIN "genres" ON "movies_genres".genres_id = "genres".id
 //     WHERE "movies".id = $1;`;
-//   const movieId = req.params.id;
+//   const printId = req.params.id;
 
 //   pool
-//     .query(queryString, [movieId])
+//     .query(queryString, [printId])
 //     .then((responseDb) => {
 //       res.send(responseDb.rows);
 //     })

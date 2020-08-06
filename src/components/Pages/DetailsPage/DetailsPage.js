@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../../Header/Header';
-import MovieGenresEditor from '../../MovieGenresEditor/MovieGenresEditor';
+import MovieGenresEditor from '../../PrintGenresEditor/PrintGenresEditor';
 // import MovieSearch from '../../MovieSearch/MovieSearch';
 
 //material ui components
@@ -25,11 +25,11 @@ class DetailsPage extends Component {
   componentDidMount() {
     // dispatch to saga to call server API
     this.props.dispatch({
-      type: 'GET_MOVIE',
+      type: 'GET_PRINT',
       payload: this.props.match.params.id,
     });
     this.props.dispatch({
-      type: 'GET_MOVIE_GENRES',
+      type: 'GET_PRINT_GENRES',
       payload: this.props.match.params.id,
     });
   }
@@ -61,7 +61,7 @@ class DetailsPage extends Component {
               <img
                 className={classes.poster}
                 src={this.props.store.details.image}
-                alt={`${this.props.store.details.title}, movie poster`}
+                alt={`${this.props.store.details.title}, print`}
               />
             </Grid>
             <Grid item xs={12} sm={8} md={9}>
@@ -75,7 +75,7 @@ class DetailsPage extends Component {
                 </Typography>
               </Box>
 
-              <MovieGenresEditor movieId={this.props.match.params.id} />
+              <MovieGenresEditor printId={this.props.match.params.id} />
             </Grid>
           </Grid>
         </Container>

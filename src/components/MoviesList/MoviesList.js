@@ -18,7 +18,7 @@ class MoviesList extends Component {
   componentDidMount() {
     // load up all information from the server
     this.props.dispatch({
-      type: 'GET_MOVIES',
+      type: 'GET_PRINTS',
     });
   }
 
@@ -33,7 +33,7 @@ class MoviesList extends Component {
   // };
 
   render() {
-    let limitedResults = this.props.store.movies.filter((item, index) => {
+    let limitedResults = this.props.store.prints.filter((item, index) => {
       const lowerTitle = item.title.toLowerCase();
 
       if (this.props.store.search) {

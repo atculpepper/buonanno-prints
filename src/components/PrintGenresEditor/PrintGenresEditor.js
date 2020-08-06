@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MovieGenreItem from '../MovieGenreItem/MovieGenreItem';
+import PrintGenreItem from '../PrintGenreItem/PrintGenreItem';
 
-class MovieGenresEditor extends Component {
+class PrintGenresEditor extends Component {
   state = {
     selectedGenreId: 0,
   };
@@ -13,7 +13,7 @@ class MovieGenresEditor extends Component {
     this.props.dispatch({
       type: 'GET_GENRES',
     });
-    console.log(this.props.movieId);
+    console.log(this.props.printId);
   }
 
   changeSelectedGenre = (event) => {
@@ -29,9 +29,9 @@ class MovieGenresEditor extends Component {
     }
 
     this.props.dispatch({
-      type: 'POST_MOVIE_GENRE',
+      type: 'POST_PRINT_GENRE',
       payload: {
-        prints_id: this.props.movieId,
+        prints_id: this.props.printId,
         genres_id: this.state.selectedGenreId,
       },
     });
@@ -54,8 +54,8 @@ class MovieGenresEditor extends Component {
         </div>
 
         <ul>
-          {this.props.store.movieGenres.map((item, index) => (
-            <MovieGenreItem key={index} item={item} />
+          {this.props.store.printGenres.map((item, index) => (
+            <PrintGenreItem key={index} item={item} />
           ))}
         </ul>
       </div>
@@ -64,4 +64,4 @@ class MovieGenresEditor extends Component {
 }
 
 const mapStateToProps = (store) => ({ store });
-export default connect(mapStateToProps)(MovieGenresEditor);
+export default connect(mapStateToProps)(PrintGenresEditor);

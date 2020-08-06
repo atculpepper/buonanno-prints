@@ -28,7 +28,7 @@ class MoviesListItem extends Component {
   componentDidMount() {
     // load up all information from the server
     this.props.dispatch({
-      type: 'GET_MOVIES',
+      type: 'GET_PRINTS',
     });
   }
 
