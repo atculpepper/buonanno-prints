@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class MovieGenreItem extends Component {
+class PrintGenreItem extends Component {
   clickDeleteGenre = (event) => {
     // dispatch to a saga for deleting genre from database
     this.props.dispatch({
-      type: 'DELETE_MOVIE_GENRE',
+      type: 'DELETE_PRINT_GENRE',
       payload: {
-        movieGenreId: this.props.item.id,
+        printGenreId: this.props.item.id,
         printID: this.props.item.prints_id,
       },
     });
@@ -24,4 +24,4 @@ class MovieGenreItem extends Component {
 }
 
 const mapStateToProps = (store) => ({ store });
-export default connect(mapStateToProps)(MovieGenreItem);
+export default connect(mapStateToProps)(PrintGenreItem);

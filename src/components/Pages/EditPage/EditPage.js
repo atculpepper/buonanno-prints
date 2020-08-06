@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //custom components
-import MovieGenresEditor from '../../MovieGenresEditor/MovieGenresEditor';
+import MovieGenresEditor from '../../PrintGenresEditor/PrintGenresEditor';
 import Header from '../../Header/Header';
 
 //material ui components
@@ -19,11 +19,11 @@ class EditPage extends Component {
   componentDidMount() {
     // dispatch to saga to call server API
     this.props.dispatch({
-      type: 'GET_MOVIE',
+      type: 'GET_PRINT',
       payload: this.props.match.params.id,
     });
     this.props.dispatch({
-      type: 'GET_MOVIE_GENRES',
+      type: 'GET_PRINT_GENRES',
       payload: this.props.match.params.id,
     });
   }
@@ -54,7 +54,7 @@ class EditPage extends Component {
     }
 
     this.props.dispatch({
-      type: 'PUT_MOVIE',
+      type: 'PUT_PRINT',
       payload: newDetails,
     });
     // navigate to the details page
@@ -95,7 +95,7 @@ class EditPage extends Component {
               ></textarea>
             </div>
           </div>
-          <MovieGenresEditor movieId={this.props.match.params.id} />
+          <MovieGenresEditor printId={this.props.match.params.id} />
         </Container>
       </div>
     );

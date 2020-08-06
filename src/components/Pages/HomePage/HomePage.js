@@ -22,7 +22,7 @@ class HomePage extends Component {
 }
 // componentDidMount() {
 //   //loads information coming in from server
-//   this.props.dispatch({ type: 'GET_MOVIES' });
+//   this.props.dispatch({ type: 'GET_PRINTS' });
 
 //   console.log('the component did in fact mount on MoviesList');
 //   //sends out a call to the rootSaga in index.js, which will redirect the dispatch to a function that will communicate with the server

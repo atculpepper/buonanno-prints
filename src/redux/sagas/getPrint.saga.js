@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { put } from 'redux-saga/effects';
 
-function* getMovie(action) {
+function* getPrint(action) {
   try {
-    const movieId = action.payload;
-    const response = yield axios.get(`/api/prints/details/${movieId}`);
+    const printId = action.payload;
+    const response = yield axios.get(`/api/prints/details/${printId}`);
     yield put({
       type: 'SET_DETAILS',
       payload: response.data[0],
@@ -14,4 +14,4 @@ function* getMovie(action) {
   }
 }
 
-export default getMovie;
+export default getPrint;

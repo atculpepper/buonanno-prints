@@ -1,11 +1,11 @@
 // Used to store movies returned from the server
-const movies = (state = [], action) => {
+const prints = (state = [], action) => {
   switch (action.type) {
-    case 'SET_MOVIES':
+    case 'SET_PRINTS':
       return action.payload;
     default:
       return state;
   }
 };
 
-export default movies;
+export default prints;

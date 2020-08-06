@@ -1,13 +1,13 @@
 import { takeLatest } from 'redux-saga/effects';
 
 // INDIVIDUAL SAGA FILES
-import fetchMovies from './fetchMovies.saga';
-import getMovie from './getMovie.saga';
-import getMovieGenres from './getMovieGenres.saga';
-import putMovieDetails from './putMovieDetails.saga';
-import deleteMovieGenre from './deleteMovieGenre.saga';
+import fetchPrints from './fetchPrints';
+import getMovie from './getPrint.saga';
+import getMovieGenres from './getPrintGenres.saga';
+import putMovieDetails from './putPrintDetails.saga';
+import deleteMovieGenre from './deletePrintGenre.saga';
 import getGenres from './getGenres.saga';
-import postMovieGenre from './postMovieGenre.saga';
+import postMovieGenre from './postPrintGenre.saga';
 import postGenre from './postGenre.saga';
 import deleteGenre from './deleteGenre.saga';
 import getUser from './getUser.saga';
@@ -18,13 +18,13 @@ import logout from './logout.saga';
 // Create the rootSaga generator function
 function* rootSaga() {
   // REGISTER SAGAS HERE
-  yield takeLatest('GET_MOVIES', fetchMovies);
-  yield takeLatest('GET_MOVIE', getMovie);
-  yield takeLatest('GET_MOVIE_GENRES', getMovieGenres);
-  yield takeLatest('PUT_MOVIE', putMovieDetails);
-  yield takeLatest('DELETE_MOVIE_GENRE', deleteMovieGenre);
+  yield takeLatest('GET_PRINTS', fetchPrints);
+  yield takeLatest('GET_PRINT', getMovie);
+  yield takeLatest('GET_PRINT_GENRES', getMovieGenres);
+  yield takeLatest('PUT_PRINT', putMovieDetails);
+  yield takeLatest('DELETE_PRINT_GENRE', deleteMovieGenre);
   yield takeLatest('GET_GENRES', getGenres);
-  yield takeLatest('POST_MOVIE_GENRE', postMovieGenre);
+  yield takeLatest('POST_PRINT_GENRE', postMovieGenre);
   yield takeLatest('POST_GENRE', postGenre);
   yield takeLatest('DELETE_GENRE', deleteGenre);
   yield takeLatest('GET_USER', getUser);
