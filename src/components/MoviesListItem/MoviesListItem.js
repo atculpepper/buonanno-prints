@@ -47,7 +47,7 @@ class MoviesListItem extends Component {
           onClick={(event) => this.clickMovieDetails(event, item.id)}
         >
           <CardMedia
-            image={item.poster}
+            image={item.image}
             title={item.title}
             className={classes.media}
           />

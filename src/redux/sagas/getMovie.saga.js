@@ -4,7 +4,7 @@ import { put } from 'redux-saga/effects';
 function* getMovie(action) {
   try {
     const movieId = action.payload;
-    const response = yield axios.get(`/api/movies/details/${movieId}`);
+    const response = yield axios.get(`/api/prints/details/${movieId}`);
     yield put({
       type: 'SET_DETAILS',
       payload: response.data[0],

@@ -3,10 +3,10 @@ import { put } from 'redux-saga/effects';
 
 function* postMovieGenre(action) {
   try {
-    yield axios.post(`/api/movies/genres/`, action.payload);
+    yield axios.post(`/api/prints/genres/`, action.payload);
     yield put({
       type: 'GET_MOVIE_GENRES',
-      payload: action.payload.movies_id,
+      payload: action.payload.prints_id,
     });
   } catch (err) {
     console.warn(err);

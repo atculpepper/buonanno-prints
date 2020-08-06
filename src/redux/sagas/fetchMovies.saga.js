@@ -4,7 +4,7 @@ import { put } from 'redux-saga/effects';
 //get movies from server and store to movies reducer
 function* fetchMovies(action) {
   try {
-    const response = yield axios.get('/api/movies');
+    const response = yield axios.get('/api/prints');
 
     yield put({ type: 'SET_MOVIES', payload: response.data });
   } catch (err) {

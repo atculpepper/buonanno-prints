@@ -30,7 +30,7 @@ class MovieGenresEditor extends Component {
     this.props.dispatch({
       type: 'POST_MOVIE_GENRE',
       payload: {
-        movies_id: this.props.movieId,
+        prints_id: this.props.movieId,
         genres_id: this.state.selectedGenreId,
       },
     });
@@ -39,7 +39,7 @@ class MovieGenresEditor extends Component {
   render() {
     return (
       <div>
-        <h4>Movie Genre(s)</h4>
+        <h4>Genre(s)</h4>
         <div>
           <select onChange={this.changeSelectedGenre}>
             <option value=''>Select a Genre</option>

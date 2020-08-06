@@ -2,15 +2,15 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-// // ------MOVIES ROUTES ----------//
+// // ------PRINTS ROUTES ----------//
 
 router.get('/', (req, res) => {
   // get all movie data
-  const queryText = `SELECT "movies".id, "movies".title, "movies".poster, "movies".description, array_agg("genres".name) as "genre"
-  FROM "movies"
-  LEFT JOIN "movies_genres" ON "movies".id = "movies_genres".movies_id
-  LEFT JOIN "genres" ON "movies_genres".genres_id = "genres".id
-  GROUP BY "movies".id
+  const queryText = `SELECT "prints".id, "prints".title, "prints".image, "prints".description, array_agg("genres".name) as "genre"
+  FROM "prints"
+  LEFT JOIN "print_genres" ON "prints".id = "print_genres".print_id
+  LEFT JOIN "genres" ON "print_genres".genres_id = "genres".id
+  GROUP BY "prints".id
   ORDER BY "title" ASC;`;
 
   pool
@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
 
 router.get('/details/:id', (req, res) => {
   // get a single movies' data
-  const queryString = `SELECT * FROM "movies" WHERE "id" = $1;`;
+  const queryString = `SELECT * FROM "prints" WHERE "id" = $1;`;
   const movieId = req.params.id;
 
   pool
@@ -42,7 +42,7 @@ router.get('/details/:id', (req, res) => {
 
 router.put('/edit/:id', (req, res) => {
   // update data for a single movie
-  const queryText = `UPDATE "movies"
+  const queryText = `UPDATE "prints"
     SET "title" = $1, "description" = $2
     WHERE "id" = $3;`;
   const movieId = req.params.id;
@@ -67,10 +67,10 @@ router.put('/edit/:id', (req, res) => {
 
 router.get('/genres/:id', (req, res) => {
   // get a single movies' data
-  const queryString = `SELECT "movies_genres".id, "movies_genres".movies_id, "movies_genres".genres_id, "movies".title, "genres".name FROM "movies"
-    JOIN "movies_genres" ON "movies".id = "movies_genres".movies_id
-    JOIN "genres" ON "movies_genres".genres_id = "genres".id
-    WHERE "movies".id = $1;`;
+  const queryString = `SELECT "print_genres".id, "print_genres".prints_id, "print_genres".genres_id, "prints".title, "genres".name FROM "prints"
+    JOIN "print_genres" ON "prints".id = "print_genres".prints_id
+    JOIN "genres" ON "print_genres".genres_id = "genres".id
+    WHERE "prints".id = $1;`;
   const movieId = req.params.id;
 
   pool
@@ -86,7 +86,7 @@ router.get('/genres/:id', (req, res) => {
 
 router.delete('/genres/:junctionId', (req, res) => {
   const moviesGenresId = req.params.junctionId;
-  const queryString = `DELETE FROM "movies_genres" WHERE "id" = $1;`;
+  const queryString = `DELETE FROM "print_genres" WHERE "id" = $1;`;
 
   pool
     .query(queryString, [moviesGenresId])
@@ -101,12 +101,12 @@ router.delete('/genres/:junctionId', (req, res) => {
 
 router.post('/genres', (req, res) => {
   const moviesGenresData = req.body;
-  const queryString = `INSERT INTO "movies_genres" ("movies_id", "genres_id")
+  const queryString = `INSERT INTO "print_genres" ("prints_id", "genres_id")
     VALUES ($1, $2);`;
 
   pool
     .query(queryString, [
-      moviesGenresData.movies_id,
+      moviesGenresData.prints_id,
       moviesGenresData.genres_id,
     ])
     .then((responseDb) => {

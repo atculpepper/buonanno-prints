@@ -8,7 +8,7 @@ class MovieGenreItem extends Component {
       type: 'DELETE_MOVIE_GENRE',
       payload: {
         movieGenreId: this.props.item.id,
-        movieId: this.props.item.movies_id,
+        printID: this.props.item.prints_id,
       },
     });
   };

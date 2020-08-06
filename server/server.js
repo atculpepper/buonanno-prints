@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 5000;
-const moviesRouter = require('./routes/movies.router');
+const printsRouter = require('./routes/prints.router');
 const genresRouter = require('./routes/genres.router');
 const authRouter = require('./routes/auth.router');
 
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true })); //tuck sent data onto req.bo
 
 /** ---------- ROUTES ---------- **/
 //Register moviesRouter
-app.use('/api/movies', moviesRouter);
+app.use('/api/prints', printsRouter);
 app.use('/api/genres', genresRouter);
 // create / register new login route
 app.use('/api/auth', authRouter);

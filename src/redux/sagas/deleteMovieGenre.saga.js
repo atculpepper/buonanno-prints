@@ -3,7 +3,7 @@ import { put } from 'redux-saga/effects';
 
 function* deleteMovieGenre(action) {
   try {
-    yield axios.delete(`/api/movies/genres/${action.payload.movieGenreId}`);
+    yield axios.delete(`/api/prints/genres/${action.payload.movieGenreId}`);
     yield put({
       type: 'GET_MOVIE_GENRES',
       payload: action.payload.movieId,
