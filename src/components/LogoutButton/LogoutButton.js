@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+//material ui components
+import Button from '@material-ui/core/Button';
+
 class LogoutButton extends Component {
   clickLogout = (event) => {
     this.props.dispatch({
@@ -9,7 +12,11 @@ class LogoutButton extends Component {
   };
 
   render() {
-    return <button onClick={this.clickLogout}>Logout</button>;
+    return (
+      <Button variant='outlined' size='small' onClick={this.clickLogout}>
+        Logout
+      </Button>
+    );
   }
 }
 

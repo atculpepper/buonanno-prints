@@ -12,7 +12,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <Header title={'Buonanno Collection'}>
+        <Header title={'Piranesi Collection'}>
           <MovieSearch />
         </Header>
         <MoviesList />
