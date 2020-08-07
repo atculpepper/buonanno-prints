@@ -2,6 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PrintGenreItem from '../PrintGenreItem/PrintGenreItem';
 
+// material-ui custom styling dependencies
+import { withStyles, createStyles } from '@material-ui/core/styles';
+// material-ui components
+import {
+  Paper,
+  IconButton,
+  Modal,
+  Button,
+  Typography,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Box,
+  Snackbar,
+} from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
+import { AddCircle } from '@material-ui/icons';
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant='filled' {...props} />;
+}
+
 class PrintGenresEditor extends Component {
   state = {
     selectedGenreId: 0,
@@ -24,7 +47,7 @@ class PrintGenresEditor extends Component {
 
   clickAddGenre = (event) => {
     if (this.state.selectedGenreId === '' || this.state.selectedGenreId === 0) {
-      alert('You must select a genre to add it.');
+      alert('You must select an option to add it.');
       return;
     }
 
