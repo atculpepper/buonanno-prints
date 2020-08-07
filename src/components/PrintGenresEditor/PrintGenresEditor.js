@@ -210,31 +210,6 @@ class PrintGenresEditor extends Component {
   }
 }
 
-//     return (
-//       <div>
-//         <h4>Genre(s)</h4>
-//         <div>
-//           <select onChange={this.changeSelectedGenre}>
-//             <option value=''>Select a Genre</option>
-//             {this.props.store.genres.map((item, index) => (
-//               <option key={index} value={item.id}>
-//                 {item.name}
-//               </option>
-//             ))}
-//           </select>
-//           <button onClick={this.clickAddGenre}>Add Genre</button>
-//         </div>
-
-//         <ul>
-//           {this.props.store.printGenres.map((item, index) => (
-//             <PrintGenreItem key={index} item={item} />
-//           ))}
-//         </ul>
-//       </div>
-//     );
-//   }
-// }
-
 const mapStateToProps = (store) => ({ store });
 export default withStyles(customStyles)(
   connect(mapStateToProps)(PrintGenresEditor)
