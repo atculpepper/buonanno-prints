@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+//material ui components
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+
 class PrintGenreItem extends Component {
   clickDeleteGenre = (event) => {
     // dispatch to a saga for deleting genre from database
@@ -20,7 +24,10 @@ class PrintGenreItem extends Component {
     const { item } = this.props;
     return (
       <li>
-        {item.name} <button onClick={this.clickDeleteGenre}>Delete</button>
+        {item.name}{' '}
+        <IconButton>
+          <DeleteIcon onClick={this.clickDeleteGenre} />
+        </IconButton>
       </li>
     );
   }
