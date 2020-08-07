@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //custom components
-import MovieGenresEditor from '../../PrintGenresEditor/PrintGenresEditor';
+import PrintGenresEditor from '../../PrintGenresEditor/PrintGenresEditor';
 import Header from '../../Header/Header';
 
 //material ui components
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+import { Grid, LinearProgress, Box, TextField } from '@material-ui/core';
 
 class EditPage extends Component {
   state = {
@@ -95,7 +95,7 @@ class EditPage extends Component {
               ></textarea>
             </div>
           </div>
-          <MovieGenresEditor printId={this.props.match.params.id} />
+          <PrintGenresEditor printId={this.props.match.params.id} />
         </Container>
       </div>
     );
