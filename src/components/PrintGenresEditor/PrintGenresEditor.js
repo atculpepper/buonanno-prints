@@ -126,30 +126,114 @@ class PrintGenresEditor extends Component {
   };
 
   render() {
+    const { classes } = this.props;
+
     return (
       <div>
-        <h4>Genre(s)</h4>
-        <div>
-          <select onChange={this.changeSelectedGenre}>
-            <option value=''>Select a Genre</option>
-            {this.props.store.genres.map((item, index) => (
-              <option key={index} value={item.id}>
-                {item.name}
-              </option>
-            ))}
-          </select>
-          <button onClick={this.clickAddGenre}>Add Genre</button>
-        </div>
+        <Paper component='div' variant='outlined' className={classes.root}>
+          <Typography variant='subtitle1' component='h4'>
+            Genres:
+          </Typography>
 
-        <ul>
-          {this.props.store.printGenres.map((item, index) => (
-            <PrintGenreItem key={index} item={item} />
-          ))}
-        </ul>
+          <ul className={classes.pillList}>
+            {this.props.store.printGenres.map((item, index) => (
+              <PrintGenreItem key={index} item={item} />
+            ))}
+            <li>
+              <IconButton onClick={this.openAddGenreModal}>
+                <AddCircle />
+              </IconButton>
+            </li>
+          </ul>
+        </Paper>
+
+        <Modal
+          open={this.state.isAddGenreModalOpen}
+          onClose={this.closeAddGenreModal}
+        >
+          <Paper className={classes.modalContent}>
+            <Typography component='h3' variant='h6' gutterBottom>
+              Pick a New Genre to Add
+            </Typography>
+
+            <Box mb={3}>
+              <FormControl
+                variant='outlined'
+                className={classes.formControl}
+                fullWidth
+              >
+                <InputLabel id='genresSelection'>Genres:</InputLabel>
+                <Select
+                  labelId='genresSelection'
+                  id='genresSelection'
+                  onChange={this.changeSelectedGenre}
+                  label='Genres:'
+                >
+                  <MenuItem value=''>
+                    <em>None</em>
+                  </MenuItem>
+                  {this.props.store.genres.map((item, index) => (
+                    <MenuItem key={index} value={item.id}>
+                      {item.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Box>
+
+            <Button
+              onClick={this.clickAddGenre}
+              variant='contained'
+              color='primary'
+              fullWidth
+            >
+              Save
+            </Button>
+          </Paper>
+        </Modal>
+
+        <Snackbar
+          open={this.state.isMessageOpen}
+          autoHideDuration={6000}
+          onClose={this.closeMessage}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+        >
+          <Alert onClose={this.closeMessage} severity='error'>
+            You must select a genre to add it.
+          </Alert>
+        </Snackbar>
       </div>
     );
   }
 }
+
+//     return (
+//       <div>
+//         <h4>Genre(s)</h4>
+//         <div>
+//           <select onChange={this.changeSelectedGenre}>
+//             <option value=''>Select a Genre</option>
+//             {this.props.store.genres.map((item, index) => (
+//               <option key={index} value={item.id}>
+//                 {item.name}
+//               </option>
+//             ))}
+//           </select>
+//           <button onClick={this.clickAddGenre}>Add Genre</button>
+//         </div>
+
+//         <ul>
+//           {this.props.store.printGenres.map((item, index) => (
+//             <PrintGenreItem key={index} item={item} />
+//           ))}
+//         </ul>
+//       </div>
+//     );
+//   }
+// }
 
 const mapStateToProps = (store) => ({ store });
 export default connect(mapStateToProps)(PrintGenresEditor);
