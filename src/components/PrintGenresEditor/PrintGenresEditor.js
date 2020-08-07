@@ -25,9 +25,42 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant='filled' {...props} />;
 }
 
+const customStyles = (theme) =>
+  createStyles({
+    root: {
+      padding: theme.spacing(2),
+    },
+    pillList: {
+      display: 'flex',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      '& > *': {
+        margin: theme.spacing(0, 0.5, 0.5, 0),
+      },
+      margin: 0,
+      padding: theme.spacing(0, 0, 1, 0),
+      listStyle: 'none',
+    },
+    modalContent: {
+      width: '350px',
+      height: '200px',
+      top: `50%`,
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      position: 'fixed',
+      padding: theme.spacing(2, 3, 3),
+    },
+    formControl: {
+      minWidth: 120,
+    },
+  });
+
 class PrintGenresEditor extends Component {
   state = {
     selectedGenreId: 0,
+    isAddGenreModalOpen: false,
+    isMessageOpen: false,
   };
 
   componentDidMount() {
