@@ -236,4 +236,6 @@ class PrintGenresEditor extends Component {
 // }
 
 const mapStateToProps = (store) => ({ store });
-export default connect(mapStateToProps)(PrintGenresEditor);
+export default withStyles(customStyles)(
+  connect(mapStateToProps)(PrintGenresEditor)
+);
