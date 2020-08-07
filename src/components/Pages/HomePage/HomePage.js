@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import MovieSearch from '../../MovieSearch/MovieSearch';
+import PrintSearch from '../../PrintSearch/PrintSearch';
 
 //components
 import Header from '../../Header/Header.js';
 
-import MoviesList from '../../MoviesList/MoviesList';
+import PrintsList from '../../PrintsList/PrintsList';
 
 class HomePage extends Component {
   render() {
     return (
       <div>
         <Header title={'Piranesi Collection'}>
-          <MovieSearch />
+          <PrintSearch />
         </Header>
-        <MoviesList />
+        <PrintsList />
       </div>
     );
   }
