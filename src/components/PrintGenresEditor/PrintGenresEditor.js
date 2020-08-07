@@ -80,7 +80,8 @@ class PrintGenresEditor extends Component {
 
   clickAddGenre = (event) => {
     if (this.state.selectedGenreId === '' || this.state.selectedGenreId === 0) {
-      alert('You must select an option to add it.');
+      //styling the alert
+      this.openMessage();
       return;
     }
 
@@ -90,6 +91,37 @@ class PrintGenresEditor extends Component {
         prints_id: this.props.printId,
         genres_id: this.state.selectedGenreId,
       },
+    });
+    this.closeAddGenreModal();
+  };
+
+  //in component functions:
+
+  // updating local state to close modal
+  closeAddGenreModal = () => {
+    this.setState({
+      isAddGenreModalOpen: false,
+    });
+  };
+
+  // updating local state to open modal
+  openAddGenreModal = () => {
+    this.setState({
+      isAddGenreModalOpen: true,
+    });
+  };
+
+  // open message alert
+  openMessage = () => {
+    this.setState({
+      isMessageOpen: true,
+    });
+  };
+
+  // close message alert
+  closeMessage = () => {
+    this.setState({
+      isMessageOpen: false,
     });
   };
 
