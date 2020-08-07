@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import MoviesListItem from '../MoviesListItem/MoviesListItem';
+import PrintsListItem from '../PrintsListItem/PrintsListItem';
 
 //custom components
 import Header from '../Header/Header';
@@ -10,7 +10,7 @@ import Header from '../Header/Header';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
-class MoviesList extends Component {
+class PrintsList extends Component {
   // state = {
   //   searchTerm: '',
   // };
@@ -52,7 +52,7 @@ class MoviesList extends Component {
         <Grid container spacing={3}>
           {limitedResults.map((item, index) => (
             <Grid item xs={12} sm={4} md={3} lg={2}>
-              <MoviesListItem key={index} item={item} />
+              <PrintsListItem key={index} item={item} />
             </Grid>
           ))}
         </Grid>
@@ -63,4 +63,4 @@ class MoviesList extends Component {
 
 const mapStoreToProps = (store) => ({ store });
 
-export default withRouter(connect(mapStoreToProps)(MoviesList));
+export default withRouter(connect(mapStoreToProps)(PrintsList));

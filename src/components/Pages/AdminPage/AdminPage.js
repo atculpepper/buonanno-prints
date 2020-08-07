@@ -11,6 +11,19 @@ import Header from '../../Header/Header';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
+// custom material-ui styling dependencies
+import { withStyles, createStyles } from '@material-ui/core/styles';
+
+const customStyles = (theme) =>
+  createStyles({
+    button: {
+      marginTop: '2em',
+    },
+    link: {
+      marginBottom: '2em',
+    },
+  });
+
 class AdminPage extends Component {
   componentDidMount() {
     this.props.dispatch({
@@ -19,11 +32,13 @@ class AdminPage extends Component {
   }
 
   render() {
+    const { classes } = this.props;
+
     let secureContent = (
       <div>
         {/* <Header /> */}
         <div>
-          <LogoutButton />
+          <LogoutButton style={{ margin: '2em' }} />
         </div>
 
         <AddGenre />
@@ -41,7 +56,9 @@ class AdminPage extends Component {
         <Container>
           <div>
             <h2>Admin</h2>
-            <Link to='/'>Home Page</Link>
+            <Link to='/' className={classes.link}>
+              Home Page
+            </Link>
 
             {secureContent}
           </div>
@@ -53,4 +70,4 @@ class AdminPage extends Component {
 
 const mapStoreToProps = (store) => ({ store });
 
-export default connect(mapStoreToProps)(AdminPage);
+export default withStyles(customStyles)(connect(mapStoreToProps)(AdminPage));

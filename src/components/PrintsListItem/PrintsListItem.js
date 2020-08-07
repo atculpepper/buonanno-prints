@@ -24,7 +24,7 @@ const customStyles = (theme) =>
     },
   });
 
-class MoviesListItem extends Component {
+class PrintsListItem extends Component {
   componentDidMount() {
     // load up all information from the server
     this.props.dispatch({
@@ -78,5 +78,5 @@ const mapStoreToProps = (store) => ({ store });
 //2. withRouter gives access to this.props.history
 //3.w ithStyles gives access to this.props.customStyles
 export default withStyles(customStyles)(
-  withRouter(connect(mapStoreToProps)(MoviesListItem))
+  withRouter(connect(mapStoreToProps)(PrintsListItem))
 );

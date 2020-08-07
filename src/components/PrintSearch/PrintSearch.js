@@ -50,7 +50,7 @@ const customStyles = (theme) =>
     },
   });
 
-class MovieSearch extends Component {
+class PrintSearch extends Component {
   changeSearch = (event) => {
     this.props.dispatch({
       type: 'SET_SEARCH',
@@ -78,4 +78,4 @@ class MovieSearch extends Component {
   }
 }
 
-export default withStyles(customStyles)(connect()(MovieSearch));
+export default withStyles(customStyles)(connect()(PrintSearch));

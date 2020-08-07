@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+//material ui components
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+
 class GenresListItem extends Component {
   clickRemove = (event) => {
     this.props.dispatch({
@@ -16,7 +20,10 @@ class GenresListItem extends Component {
 
     return (
       <li>
-        {item.name} <button onClick={this.clickRemove}>X</button>
+        {item.name}{' '}
+        <IconButton>
+          <DeleteIcon onClick={this.clickRemove} />
+        </IconButton>
       </li>
     );
   }

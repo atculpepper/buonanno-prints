@@ -184,8 +184,8 @@ class PrintGenresEditor extends Component {
             <Button
               onClick={this.clickAddGenre}
               variant='contained'
-              color='primary'
-              fullWidth
+              color='black'
+              size='small'
             >
               Save
             </Button>
