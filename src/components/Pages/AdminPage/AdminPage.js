@@ -38,7 +38,7 @@ class AdminPage extends Component {
       <div>
         {/* <Header /> */}
         <div>
-          <LogoutButton className={classes.button} />
+          <LogoutButton style={{ margin: '2em' }} />
         </div>
 
         <AddGenre />

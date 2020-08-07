@@ -13,7 +13,12 @@ class LogoutButton extends Component {
 
   render() {
     return (
-      <Button variant='outlined' size='small' onClick={this.clickLogout}>
+      <Button
+        style={{ marginTop: '1em' }}
+        variant='outlined'
+        size='small'
+        onClick={this.clickLogout}
+      >
         Logout
       </Button>
     );
