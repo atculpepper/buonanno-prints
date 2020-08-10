@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+// import mapStoreToProps from '../../redux/mapStoreToProps';
 
 // require('dotenv').config();
 
 class DropzoneUploader extends Component {
+  handleFinishedUpload = (info) => {
+    console.log('this is the info:', info);
+    console.log('File uploaded with filename', info.filename);
+    console.log('Access it on s3 at', info.fileUrl);
+  };
   render() {
     const uploadOptions = {
       server: 'http://localhost:5000',
@@ -23,4 +28,4 @@ class DropzoneUploader extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(DropzoneUploader);
+export default connect()(DropzoneUploader);
