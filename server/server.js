@@ -19,6 +19,17 @@ app.use('/api/genres', genresRouter);
 // create / register new login route
 app.use('/api/auth', authRouter);
 
+//AWS registration
+app.use(
+  '/s3',
+  require('react-dropzone-s3-uploader/s3router')({
+    bucket: 'renaissance-prints',
+    region: 'us-east-2',
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    ACL: 'public-read',
+  })
+);
+
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
   console.log('Server is running on port: ', port);
