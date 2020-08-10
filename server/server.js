@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000;
 const printsRouter = require('./routes/prints.router');
 const genresRouter = require('./routes/genres.router');
 const authRouter = require('./routes/auth.router');
+const imagesRouter = require('./routes/images.router');
 const UploaderS3Router = require('react-dropzone-s3-uploader/s3router');
 
 /** ---------- MIDDLEWARE ---------- **/
@@ -19,6 +20,7 @@ app.use('/api/prints', printsRouter);
 app.use('/api/genres', genresRouter);
 // create / register new login route
 app.use('/api/auth', authRouter);
+app.use('/api/images', imagesRouter);
 
 //AWS registration
 app.use(
