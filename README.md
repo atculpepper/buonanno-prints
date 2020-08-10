@@ -8,19 +8,19 @@ This project is a gallery style inventory to help view and update metadata on a 
 
 #### Home
 
-<img src="/wireframes/HomePage.jpeg" alt="Home Page" />
+<img src="../wireframes/HomePage.jpeg" alt="Home Page" />
 
 #### Details
 
-<img src="/wireframes/DetailsPage.jpeg" alt="Details Page" />
+<img src="../wireframes/DetailsPage.jpeg" alt="Details Page" />
 
 #### Edit
 
-<img src="/wireframes/EditPage.jpeg" alt="Edit Page" />
+<img src="../wireframes/EditPage.jpeg" alt="Edit Page" />
 
 #### Admin
 
-<img src="/wireframes/AdminPage.jpeg" alt="Admin Page" />
+<img src="../wireframes/AdminPage.jpeg" alt="Admin Page" />
 
 ### Prerequisites
 
