@@ -30,16 +30,16 @@ router.post('/login', (req, res) => {
     loginCreds.password === credentials.password
   ) {
     credentials.isLoggedIn = true;
-    res.send(200);
+    res.sendStatus(200);
   } else {
     credentials.isLoggedIn = false;
-    res.send(401);
+    res.sendStatus(401);
   }
 });
 
 router.post('/logout', (req, res) => {
   credentials.isLoggedIn = false;
-  res.send(200);
+  res.sendStatus(200);
 });
 
 module.exports = router;

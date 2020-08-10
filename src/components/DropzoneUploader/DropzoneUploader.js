@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
+import mapStoreToProps from '../../redux/mapStoreToProps';
+
+// require('dotenv').config();
 
 class DropzoneUploader extends Component {
   render() {
@@ -20,4 +23,4 @@ class DropzoneUploader extends Component {
   }
 }
 
-export default connect()(DropzoneUploader);
+export default connect(mapStoreToProps)(DropzoneUploader);
