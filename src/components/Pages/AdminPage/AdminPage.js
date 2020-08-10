@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import AddGenre from '../../AddGenre/AddGenre';
+import AddImage from '../../AddImage/AddImage';
 import GenresList from '../../GenresList/GenresList';
 import LoginForm from '../../LoginForm/LoginForm';
 import LogoutButton from '../../LogoutButton/LogoutButton';
@@ -40,7 +41,7 @@ class AdminPage extends Component {
         <div>
           <LogoutButton style={{ margin: '2em' }} />
         </div>
-
+        <AddImage />
         <AddGenre />
         <GenresList />
       </div>

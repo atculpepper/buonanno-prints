@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000;
 const printsRouter = require('./routes/prints.router');
 const genresRouter = require('./routes/genres.router');
 const authRouter = require('./routes/auth.router');
+const UploaderS3Router = require('react-dropzone-s3-uploader/s3router');
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for angular requests
@@ -22,7 +23,7 @@ app.use('/api/auth', authRouter);
 //AWS registration
 app.use(
   '/s3',
-  require('react-dropzone-s3-uploader/s3router')({
+  UploaderS3Router({
     bucket: 'renaissance-prints',
     region: 'us-east-2',
     headers: { 'Access-Control-Allow-Origin': '*' },
