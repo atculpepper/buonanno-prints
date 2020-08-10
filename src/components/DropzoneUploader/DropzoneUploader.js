@@ -6,9 +6,9 @@ class DropzoneUploader extends Component {
   render() {
     const uploadOptions = {
       server: 'http://localhost:5000',
-      signingUrlQueryParams: { uploadType: 'avatar' },
+      //   signingUrlQueryParams: { uploadType: 'avatar' },
     };
-    const s3Url = 'https://my-bucket.s3.amazonaws.com';
+    const s3Url = 'https://renaissance-prints.s3.amazonaws.com';
     return (
       <DropzoneS3Uploader
         onFinish={this.handleFinishedUpload}
