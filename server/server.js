@@ -9,6 +9,8 @@ const authRouter = require('./routes/auth.router');
 const imagesRouter = require('./routes/images.router');
 const UploaderS3Router = require('react-dropzone-s3-uploader/s3router');
 
+require('dotenv').config();
+
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for angular requests
 app.use(express.static('build')); //serving up static files
