@@ -8,6 +8,11 @@ class AddImage extends Component {
     console.log('Access it on s3 at', info.fileUrl);
   };
   render() {
+    const uploadOptions = {
+      server: 'http://localhost:5000',
+      signingUrlQueryParams: { uploadType: 'avatar' },
+    };
+
     const s3Url = 'https://renaissance-prints.s3.amazonaws.com';
 
     return (
@@ -17,7 +22,7 @@ class AddImage extends Component {
           onFinish={this.handleFinishedUpload}
           s3Url={s3Url}
           maxSize={1024 * 1024 * 5}
-          //   upload={uploadOptions}
+          upload={uploadOptions}
         />
       </div>
     );
