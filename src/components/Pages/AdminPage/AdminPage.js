@@ -6,7 +6,8 @@ import GenresList from '../../GenresList/GenresList';
 import LoginForm from '../../LoginForm/LoginForm';
 import LogoutButton from '../../LogoutButton/LogoutButton';
 import Header from '../../Header/Header';
-import AddImage from '../../AddImage/AddImage';
+// import AddImage from '../../AddImage/AddImage';
+import NewEntry from '../../NewEntry/NewEntry';
 
 //material ui components
 import Container from '@material-ui/core/Container';
@@ -41,7 +42,7 @@ class AdminPage extends Component {
         <div>
           <LogoutButton style={{ margin: '2em' }} />
         </div>
-        <AddImage />
+        <NewEntry />
         <AddGenre />
         <GenresList />
       </div>
