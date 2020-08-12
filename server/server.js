@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+//loads environment variables into process.env
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -19,6 +21,15 @@ app.use('/api/genres', genresRouter);
 // create / register new login route
 app.use('/api/auth', authRouter);
 
+app.use(
+  '/s3',
+  require('react-dropzone-s3-uploader/s3router')({
+    bucket: 'renaissance-prints', // required
+    region: 'us-east-2', // optional
+    headers: { 'Access-Control-Allow-Origin': '*' }, // optional
+    ACL: 'public-read', // this is the default - set to `public-read` to let anyone view uploads
+  })
+);
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
   console.log('Server is running on port: ', port);
