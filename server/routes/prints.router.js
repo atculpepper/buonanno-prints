@@ -118,6 +118,28 @@ router.post('/genres', (req, res) => {
     });
 });
 
+//post route for new prints
+router.post('/', (req, res) => {
+  const printsData = req.body;
+  const queryString = `INSERT INTO "prints" ("title", "image", "description")
+    VALUES ($1, $2, $3);`;
+  console.log(printsData);
+
+  pool
+    .query(queryString, [
+      printsData.title,
+      printsData.image,
+      printsData.description,
+    ])
+    .then((response) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
 
 //legacy code
