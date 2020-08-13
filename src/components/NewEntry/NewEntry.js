@@ -101,7 +101,7 @@ class NewEntry extends Component {
                 defaultValue={this.props.store.url}
                 fullWidth
                 variant='outlined'
-                // label='Image Url'
+                // label='Image Url'//could this prop be removed onFinished load of image to AWS?
                 multiline
                 required
               />
