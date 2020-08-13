@@ -9,7 +9,13 @@ import AddImage from '../AddImage/AddImage';
 //material ui components
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
-import { Grid, LinearProgress, Box, TextField } from '@material-ui/core';
+import {
+  Grid,
+  LinearProgress,
+  Box,
+  TextField,
+  Typography,
+} from '@material-ui/core';
 
 class NewEntry extends Component {
   state = {
@@ -89,12 +95,13 @@ class NewEntry extends Component {
               <AddImage />
             </Grid>
             <Grid item xs={12}>
+              <h3 style>Image Url</h3>
               <TextField
                 onChange={this.handleChange('url')}
                 defaultValue={this.props.store.url}
                 fullWidth
                 variant='outlined'
-                label='Image Url'
+                // label='Image Url'
                 multiline
                 required
               />
