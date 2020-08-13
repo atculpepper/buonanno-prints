@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put } from 'redux-saga/effects';
 
-function* getGenres(action) {
+function* getUser(action) {
   try {
     const response = yield axios.get('/api/auth/user');
     yield put({
@@ -16,4 +16,4 @@ function* getGenres(action) {
   }
 }
 
-export default getGenres;
+export default getUser;

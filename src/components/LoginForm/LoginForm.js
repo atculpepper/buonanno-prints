@@ -19,6 +19,7 @@ class LoginForm extends Component {
   };
 
   clickLogin = (event) => {
+    // event.preventDefault();
     this.props.dispatch({
       type: 'LOGIN',
       payload: this.state.loginInfo,
