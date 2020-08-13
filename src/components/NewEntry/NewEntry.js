@@ -18,10 +18,11 @@ class NewEntry extends Component {
     url: '',
   };
 
-  addInfo = (fieldKey) => (event) => {
+  handleChange = (fieldKey) => (event) => {
     this.setState({
       [fieldKey]: event.target.value,
     });
+    console.log(this.state);
   };
 
   clickCancel = (event) => {
@@ -33,6 +34,7 @@ class NewEntry extends Component {
     let newDetails = {
       ...this.state,
     };
+    console.log(newDetails);
 
     this.props.dispatch({
       type: 'POST_PRINT',
@@ -45,12 +47,38 @@ class NewEntry extends Component {
       url: '',
     });
 
-    console.log('Clicked Add print');
+    console.log('Clicked Add print', newDetails);
     // navigate to the home page
     // this.props.history.push(`/home`);
   };
 
   render() {
+    //conditional rendering to try to keep a label on input form if store.url is empty
+    let urlField = (
+      <TextField
+        onChange={this.handleChange('url')}
+        defaultValue={this.props.store.url}
+        fullWidth
+        variant='outlined'
+        label='Image Url'
+        multiline
+        required
+      />
+    );
+    if (this.props.store.url != null) {
+      urlField = (
+        <TextField
+          onChange={this.handleChange('url')}
+          defaultValue={this.props.store.url}
+          fullWidth
+          variant='outlined'
+          // label='Image Url'
+          multiline
+          required
+        />
+      );
+    }
+
     return (
       <div className='algnLeft'>
         <h3>Add Print</h3>
@@ -60,7 +88,7 @@ class NewEntry extends Component {
               <TextField
                 type='text'
                 placeholder='Title'
-                onChange={this.addInfo('title')}
+                onChange={this.handleChange('title')}
                 fullWidth
                 variant='outlined'
                 label='Print Title'
@@ -69,7 +97,7 @@ class NewEntry extends Component {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                onChange={this.addInfo('description')}
+                onChange={this.handleChange('description')}
                 fullWidth
                 variant='outlined'
                 label='Print Description'
@@ -81,14 +109,16 @@ class NewEntry extends Component {
               <AddImage />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                onChange={this.addInfo('url')}
+              {urlField}
+              {/* <TextField
+                onChange={this.handleChange('url')}
+                defaultValue={this.props.store.url}
                 fullWidth
                 variant='outlined'
                 label='Image Url'
                 multiline
                 required
-              />
+              /> */}
             </Grid>
           </Grid>
         </Box>
