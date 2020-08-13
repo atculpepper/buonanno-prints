@@ -52,6 +52,13 @@ class NewEntry extends Component {
   };
 
   render() {
+    // if ({this.props.store.url}){
+    //   defaultValue = {this.props.store.url}
+    // }
+    // else {
+    //   defaultValue = {''}
+    // }
+
     return (
       <div className='algnLeft'>
         <h3>Add Print</h3>
@@ -84,6 +91,7 @@ class NewEntry extends Component {
             <Grid item xs={12}>
               <TextField
                 onChange={this.handleChange('url')}
+                defaultValue={this.props.store.url}
                 fullWidth
                 variant='outlined'
                 label='Image Url'

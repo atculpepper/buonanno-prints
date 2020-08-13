@@ -7,6 +7,10 @@ class AddImage extends Component {
     console.log('File uploaded with filename', info.filename);
     console.log('Access it on s3 at', info.fileUrl);
     const imageUrl = info.fileUrl;
+    this.props.dispatch({
+      type: 'SET_URL',
+      payload: imageUrl,
+    });
   };
   render() {
     const uploadOptions = {
