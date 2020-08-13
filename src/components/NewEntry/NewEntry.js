@@ -34,6 +34,7 @@ class NewEntry extends Component {
     let newDetails = {
       ...this.state,
     };
+    console.log(newDetails);
 
     this.props.dispatch({
       type: 'POST_PRINT',
