@@ -8,6 +8,7 @@ import printGenres from './printGenres.reducer';
 import genresError from './genresError.reducer';
 import user from './user.reducer';
 import search from './search.reducer';
+import url from './url.reducer';
 
 export default combineReducers({
   // REDUCERS ARE REGISTERED
@@ -18,4 +19,5 @@ export default combineReducers({
   genresError,
   user,
   search,
+  url,
 });
