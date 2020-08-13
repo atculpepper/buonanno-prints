@@ -13,6 +13,7 @@ import deleteGenre from './deleteGenre.saga';
 import getUser from './getUser.saga';
 import login from './login.saga';
 import logout from './logout.saga';
+import postPrint from './postPrint.saga';
 
 // REGISTRATION FOR ALL SAGAS
 // Create the rootSaga generator function
@@ -30,6 +31,7 @@ function* rootSaga() {
   yield takeLatest('GET_USER', getUser);
   yield takeLatest('LOGIN', login);
   yield takeLatest('LOGOUT', logout);
+  yield takeLatest('POST_PRINT', postPrint);
 }
 
 export default rootSaga;
