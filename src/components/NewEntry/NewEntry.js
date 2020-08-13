@@ -52,12 +52,31 @@ class NewEntry extends Component {
   };
 
   render() {
-    // if ({this.props.store.url}){
-    //   defaultValue = {this.props.store.url}
-    // }
-    // else {
-    //   defaultValue = {''}
-    // }
+    //conditional rendering to try to keep a label on input form if store.url is empty
+    let urlField = (
+      <TextField
+        onChange={this.handleChange('url')}
+        defaultValue={this.props.store.url}
+        fullWidth
+        variant='outlined'
+        label='Image Url'
+        multiline
+        required
+      />
+    );
+    if (this.props.store.url != null) {
+      urlField = (
+        <TextField
+          onChange={this.handleChange('url')}
+          defaultValue={this.props.store.url}
+          fullWidth
+          variant='outlined'
+          // label='Image Url'
+          multiline
+          required
+        />
+      );
+    }
 
     return (
       <div className='algnLeft'>
@@ -89,7 +108,8 @@ class NewEntry extends Component {
               <AddImage />
             </Grid>
             <Grid item xs={12}>
-              <TextField
+              {urlField}
+              {/* <TextField
                 onChange={this.handleChange('url')}
                 defaultValue={this.props.store.url}
                 fullWidth
@@ -97,7 +117,7 @@ class NewEntry extends Component {
                 label='Image Url'
                 multiline
                 required
-              />
+              /> */}
             </Grid>
           </Grid>
         </Box>
