@@ -128,7 +128,7 @@ router.post('/', (req, res) => {
   pool
     .query(queryString, [
       printsData.title,
-      printsData.image,
+      printsData.url,
       printsData.description,
     ])
     .then((response) => {

@@ -47,7 +47,7 @@ class NewEntry extends Component {
       url: '',
     });
 
-    console.log('Clicked Add print');
+    console.log('Clicked Add print', newDetails);
     // navigate to the home page
     // this.props.history.push(`/home`);
   };
